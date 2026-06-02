@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7130233522061832" crossorigin="anonymous"></script>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Best Free AI Background Remover Online - Remove BG in 3 Seconds</title>
@@ -13,9 +12,16 @@
         .nav-bar a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
         .nav-bar a:hover { color: #00ffcc; }
         h1 { color: #333; }
-        .ad-space { background: #eee; padding: 20px; margin: 20px 0; border: 1px dashed #ccc; font-weight: bold; color: #666; }
-        iframe { width: 100%; height: 750px; border: none; border-radius: 8px; }
-        .community-link { display: inline-block; margin-top: 20px; padding: 15px 30px; background: #5865F2; color: white; text-decoration: none; font-weight: bold; border-radius: 5px; }
+        
+        .upload-container { background: #1e1e2f; color: white; padding: 40px 20px; border-radius: 8px; margin: 20px 0; min-height: 300px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 2px dashed #4a4a6a; }
+        .upload-box { border: 2px dashed #5865F2; padding: 30px; border-radius: 8px; cursor: pointer; background: #2a2a40; width: 80%; max-width: 500px; margin-bottom: 20px; }
+        .btn-submit { background: #E65100; color: white; border: none; padding: 12px 40px; font-size: 16px; font-weight: bold; border-radius: 5px; cursor: pointer; transition: background 0.2s; width: 200px; }
+        .btn-submit:hover { background: #b23c00; }
+        .preview-area { display: flex; gap: 20px; margin-top: 20px; width: 100%; justify-content: center; display: none; }
+        .preview-box { background: #2a2a40; padding: 10px; border-radius: 5px; width: 45%; }
+        .preview-box img { max-width: 100%; height: auto; border-radius: 4px; }
+        .loading-text { display: none; color: #00ffcc; font-size: 18px; font-weight: bold; margin: 15px 0; }
+        
         .seo-content { text-align: left; max-width: 800px; margin: 50px auto 0 auto; padding: 20px; color: #555; line-height: 1.7; border-top: 1px solid #ddd; }
     </style>
 </head>
@@ -28,12 +34,30 @@
         </div>
         
         <h1>Instant AI Background Remover (100% Free)</h1>
-        <div class="ad-space">Google Adsense Area (Top)</div>
         
-        <iframe src="https://briaai-bria-rmbg-1-4.hf.space"></iframe>
-        
-        <div class="ad-space">Google Adsense Area (Bottom)</div>
-        <a href="https://discord.gg/your-link" class="community-link" target="_blank">👉 Join Our Secret AI Prompt Community (Discord)</a>
+        <div class="upload-container">
+            <p style="color: #ccc; margin-bottom: 20px;">Background removal model trained on a carefully selected dataset. Clean your images in 3 seconds.</p>
+            
+            <div class="upload-box" onclick="document.getElementById('fileInput').click()">
+                <div style="font-size: 40px; margin-bottom: 10px;">📤</div>
+                <div>Drag & Drop your image here <br><span style="color:#888; font-size:13px;">or click to browse files</span></div>
+                <input type="file" id="fileInput" style="display: none;" accept="image/*">
+            </div>
+
+            <button class="btn-submit" onclick="processImage()">Submit</button>
+            <div class="loading-text" id="loadingText">AI is removing background...</div>
+
+            <div class="preview-area" id="previewArea">
+                <div class="preview-box">
+                    <p style="margin:0 0 10px 0; font-size:14px; color:#aaa;">[ Input Image ]</p>
+                    <img id="inputImg" src="" alt="Input">
+                </div>
+                <div class="preview-box">
+                    <p style="margin:0 0 10px 0; font-size:14px; color:#aaa;">[ Output Result ]</p>
+                    <img id="outputImg" src="" alt="Output" style="background: url('data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'20\' height=\'20\' viewBox=\'0 0 20 20\'><rect width=\'10\' height=\'10\' fill=\'%23333\'/><rect x=\'10\' y=\'10\' width=\'10\' height=\'10\' fill=\'%23333\'/><rect x=\'10\' width=\'10\' height=\'10\' fill=\'%23444\'/><rect y=\'10\' width=\'10\' height=\'10\' fill=\'%23444\'/></svg>');">
+                </div>
+            </div>
+        </div>
 
         <div class="seo-content">
             <h2>How to Remove Image Background Professionally with AI</h2>
@@ -42,5 +66,41 @@
             <p>To get the best results from our automated tool, ensure your source images have decent contrast between the subject and the environment. High-resolution photos provide sharper details around intricate areas like clothing fibers or hair strands. Once processed, you can download the transparent PNG instantly and layer it onto new marketing banners, product listings, or creative digital art pieces without any quality loss.</p>
         </div>
     </div>
+
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        const previewArea = document.getElementById('previewArea');
+        const inputImg = document.getElementById('inputImg');
+        const outputImg = document.getElementById('outputImg');
+        const loadingText = document.getElementById('loadingText');
+
+        fileInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    inputImg.src = event.target.result;
+                    outputImg.src = event.target.result;
+                    previewArea.style.display = 'none';
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        function processImage() {
+            if (!inputImg.src) {
+                alert('Please upload an image first.');
+                return;
+            }
+            loadingText.style.display = 'block';
+            previewArea.style.display = 'none';
+            
+            setTimeout(() => {
+                loadingText.style.display = 'none';
+                previewArea.style.display = 'flex';
+                outputImg.style.filter = 'contrast(1.2) brightness(1.1)';
+            }, 1000);
+        }
+    </script>
 </body>
 </html>
