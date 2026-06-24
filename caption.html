@@ -1,12 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Free AI Caption Generator Online</title>
-<meta name="description" content="Generate social media captions for Instagram, TikTok, YouTube Shorts, Facebook, X and other platforms. Supports Korean, English, Vietnamese and more.">
-<meta name="keywords" content="AI caption generator, Instagram caption generator, TikTok caption generator, YouTube Shorts caption, social media caption tool">
+<meta name="description" content="Generate social media captions for Instagram, TikTok, YouTube Shorts, Facebook, X, and more. Supports Korean, English, Vietnamese, and more.">
+<meta name="keywords" content="AI caption generator, Instagram caption generator, TikTok caption generator, YouTube Shorts caption generator, social media caption tool">
 
 <style>
 body {
@@ -32,11 +33,14 @@ body {
     padding: 15px;
     background: #333;
     border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
 }
 
 .nav-bar a {
     color: white;
-    margin: 0 10px;
     text-decoration: none;
     font-weight: bold;
 }
@@ -137,127 +141,141 @@ button:disabled {
     text-decoration: underline;
 }
 </style>
+
 </head>
 
 <body>
 
 <div class="container">
 
-    <div class="nav-bar">
+```
+<div class="nav-bar">
+    <a href="index.html">Home</a>
+    <a href="prompt.html">Prompt</a>
+    <a href="hashtag.html">Hashtag</a>
+    <a href="bio.html">Bio</a>
+    <a href="caption.html">Caption</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+</div>
+
+<h1>Free AI Caption Generator</h1>
+
+<p>
+    Generate social media captions for Instagram, TikTok, YouTube Shorts, Facebook, X, and more.
+</p>
+
+<div class="notice">
+    Enter a post idea, video idea, product description, photo description, or content topic.
+    The AI will generate caption options you can copy, edit, and use.
+</div>
+
+<div class="notice">
+    The result follows your input language.
+    If you write in Korean, the captions can be generated in Korean.
+    If you write in English, the captions can be generated in English.
+    If you write in Vietnamese, the captions can be generated in Vietnamese.
+</div>
+
+<textarea id="idea" placeholder="Example: 사모예드가 눈밭에서 뛰어노는 귀여운 영상"></textarea>
+
+<br>
+
+<button id="generateBtn" onclick="generateCaption()">Generate Caption</button>
+<button onclick="copyCaption()">Copy Caption</button>
+
+<div class="result-title">Generated Captions</div>
+
+<div class="result-box" id="result">
+    Your generated captions will appear here.
+</div>
+
+<div class="content">
+    <h2>What is an AI Caption Generator?</h2>
+
+    <p>
+        An AI Caption Generator helps users create short and useful captions for social media posts, videos, photos, products, brands, and personal content.
+        Instead of starting from a blank page, users can enter a simple idea and receive multiple caption options.
+    </p>
+
+    <p>
+        This tool is useful for Instagram, TikTok, YouTube Shorts, Facebook, X, personal brands, small businesses, creators, marketers, and online sellers.
+    </p>
+
+    <h2>Same Language Output</h2>
+
+    <p>
+        This caption generator is designed to follow the language of your input.
+        Korean input can produce Korean captions, English input can produce English captions, and Vietnamese input can produce Vietnamese captions.
+    </p>
+
+    <h2>How to Use This Tool</h2>
+
+    <p>
+        Write a short description of your post, video, image, product, or topic.
+        Click the generate button. The AI will create several caption options that you can copy, edit, and use.
+    </p>
+
+    <h2>Best Use Cases</h2>
+
+    <ul>
+        <li>Instagram captions</li>
+        <li>TikTok video captions</li>
+        <li>YouTube Shorts captions</li>
+        <li>Facebook post captions</li>
+        <li>X post ideas</li>
+        <li>Product post captions</li>
+        <li>Pet video captions</li>
+        <li>Travel content captions</li>
+        <li>Fitness content captions</li>
+        <li>Small business posts</li>
+    </ul>
+
+    <h2>Tips for Better Captions</h2>
+
+    <p>
+        Give the AI a clear description of the post.
+        Include the subject, mood, audience, platform, and purpose if possible.
+        For example, instead of writing “dog video,” write “a cute Samoyed dog running through snow for an Instagram reel.”
+    </p>
+</div>
+
+<div class="content">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>Is this AI Caption Generator free?</h3>
+    <p>Yes. This AI caption generator is free to use.</p>
+
+    <h3>Can I use Korean input?</h3>
+    <p>Yes. If you write in Korean, the generated captions can be written in Korean.</p>
+
+    <h3>Can I use Vietnamese input?</h3>
+    <p>Yes. If you write in Vietnamese, the generated captions can be written in Vietnamese.</p>
+
+    <h3>Can I use the captions commercially?</h3>
+    <p>Yes. You can use the generated captions for personal, creator, or business content.</p>
+
+    <h3>Does this tool generate images?</h3>
+    <p>No. This tool generates text captions only.</p>
+
+    <h3>Do I need registration?</h3>
+    <p>No registration is required.</p>
+</div>
+
+<div class="footer">
     <a href="index.html">Home</a> |
     <a href="prompt.html">Prompt</a> |
     <a href="hashtag.html">Hashtag</a> |
     <a href="bio.html">Bio</a> |
     <a href="caption.html">Caption</a> |
     <a href="about.html">About</a> |
-    <a href="contact.html">Contact</a>
+    <a href="contact.html">Contact</a> |
+    <a href="privacy.html">Privacy Policy</a> |
+    <a href="terms.html">Terms of Service</a>
+
+    <p>© 2026 AI Free Tools. All rights reserved.</p>
 </div>
-
-    <h1>Free AI Caption Generator</h1>
-
-    <p>
-        Generate social media captions for Instagram, TikTok, YouTube Shorts, Facebook, X, and more.
-    </p>
-
-    <div class="notice">
-        Write your idea in Korean, English, Vietnamese, or another language.
-        The AI will generate captions in the same language as your input.
-    </div>
-
-    <textarea id="idea" placeholder="Example: 사모예드가 눈밭에서 뛰어노는 귀여운 영상"></textarea>
-
-    <br>
-
-    <button id="generateBtn" onclick="generateCaption()">Generate Caption</button>
-    <button onclick="copyCaption()">Copy Caption</button>
-
-    <div class="result-title">Generated Captions</div>
-
-    <div class="result-box" id="result">
-        Your generated captions will appear here.
-    </div>
-
-    <div class="content">
-        <h2>What is an AI Caption Generator?</h2>
-
-        <p>
-            An AI Caption Generator helps users create short and useful captions for social media posts, videos, photos, products, brands, and personal content.
-            Instead of starting from a blank page, users can enter a simple idea and receive multiple caption options.
-        </p>
-
-        <p>
-            This tool is useful for Instagram, TikTok, YouTube Shorts, Facebook, X, personal brands, small businesses, creators, and marketing content.
-        </p>
-
-        <h2>Same Language Output</h2>
-
-        <p>
-            This tool is designed to answer in the same language as the user's input.
-            If you write in Korean, the generated captions will be in Korean.
-            If you write in English, the captions will be in English.
-            If you write in Vietnamese, the captions will be in Vietnamese.
-        </p>
-
-        <h2>Best Use Cases</h2>
-
-        <ul>
-            <li>Instagram captions</li>
-            <li>TikTok video captions</li>
-            <li>YouTube Shorts captions</li>
-            <li>Facebook post captions</li>
-            <li>X post ideas</li>
-            <li>Product post captions</li>
-            <li>Pet video captions</li>
-            <li>Travel content captions</li>
-            <li>Fitness content captions</li>
-            <li>Small business posts</li>
-        </ul>
-
-        <h2>Tips for Better Captions</h2>
-
-        <p>
-            Give the AI a clear description of the post.
-            Include the subject, mood, audience, purpose, and platform if possible.
-            For example, instead of writing “dog video,” write “a cute Samoyed dog running through snow for an Instagram reel.”
-        </p>
-    </div>
-
-    <div class="content">
-        <h2>Frequently Asked Questions</h2>
-
-        <h3>Is this AI Caption Generator free?</h3>
-        <p>Yes. This AI caption generator is free to use.</p>
-
-        <h3>Can I use Korean input?</h3>
-        <p>Yes. If you write in Korean, the captions will be generated in Korean.</p>
-
-        <h3>Can I use Vietnamese input?</h3>
-        <p>Yes. If you write in Vietnamese, the captions will be generated in Vietnamese.</p>
-
-        <h3>Can I use the captions commercially?</h3>
-        <p>Yes. You can use the generated captions for personal, creator, or business content.</p>
-
-        <h3>Does this tool generate images?</h3>
-        <p>No. This tool generates text captions only.</p>
-
-        <h3>Do I need registration?</h3>
-        <p>No registration is required.</p>
-    </div>
-
-    <div class="footer">
-        <a href="index.html">Home</a> |
-        <a href="prompt.html">Prompt Generator</a> |
-        <a href="hashtag.html">Hashtag Generator</a> |
-        <a href="bio.html">Bio Generator</a> |
-        <a href="caption.html">Caption Generator</a> |
-        <a href="index.html#articles">Articles</a> |
-        <a href="about.html">About</a> |
-        <a href="contact.html">Contact</a> |
-        <a href="privacy.html">Privacy Policy</a> |
-        <a href="terms.html">Terms of Service</a>
-
-        <p>© 2026 AI Free Tools. All rights reserved.</p>
-    </div>
+```
 
 </div>
 
