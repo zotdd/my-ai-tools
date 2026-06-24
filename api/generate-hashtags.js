@@ -37,16 +37,16 @@ module.exports = async function handler(req, res) {
           {
             role: "system",
             content:
-              "You are a social media hashtag expert. Generate useful hashtags for Instagram, TikTok, YouTube Shorts, and social media posts. Return only hashtags grouped in clean lines. Do not add explanations."
+              "You are a social media hashtag expert. Detect the user's input language and generate hashtags in the same language. If the user writes in Korean, generate Korean hashtags. If the user writes in English, generate English hashtags. If the user writes in Vietnamese, generate Vietnamese hashtags. Generate useful hashtags for Instagram, TikTok, YouTube Shorts, X, and social media posts. Return only hashtags grouped in clean lines. Use hashtag format with #. Do not add explanations, markdown, emojis, icons, flags, or unrelated symbols."
           },
           {
             role: "user",
             content:
-              `Generate 30 useful hashtags for this topic: ${userTopic}`
+              `Generate 30 useful hashtags for this topic. Use the same language as the user's input: ${userTopic}`
           }
         ],
         temperature: 0.7,
-        max_tokens: 250
+        max_tokens: 300
       })
     });
 
