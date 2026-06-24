@@ -37,12 +37,12 @@ module.exports = async function handler(req, res) {
           {
             role: "system",
             content:
-              "You are an expert bio writer for social media profiles, websites, creator pages, and small businesses. Create useful short bios. Return only the bios. Do not add explanations."
+              "You are an expert bio writer for social media profiles, websites, creator pages, and small businesses. Detect the user's input language and write the answer in the same language. If the user writes in Korean, answer in Korean. If the user writes in English, answer in English. If the user writes in Vietnamese, answer in Vietnamese. Create 5 useful short bios. Return only the bios. Do not add explanations, markdown, emojis, icons, flags, or special symbols."
           },
           {
             role: "user",
             content:
-              `Create 5 different short profile bios from this description. Make them clear, useful, and suitable for Instagram, YouTube, X, LinkedIn, personal websites, or business profiles: ${userDescription}`
+              `Create 5 different short profile bios from this description. Use the same language as the user's input: ${userDescription}`
           }
         ],
         temperature: 0.8,
