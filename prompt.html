@@ -6,8 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Free AI Image Prompt Generator Online</title>
-<meta name="description" content="Generate detailed text prompts for AI image generators like Midjourney, Stable Diffusion, Flux and other creative image tools.">
-<meta name="keywords" content="AI prompt generator, image prompt generator, Midjourney prompt, Stable Diffusion prompt, Flux prompt, AI art prompt">
+<meta name="description" content="Generate detailed AI image prompts from simple ideas. Supports Korean, English, Vietnamese, and more.">
+<meta name="keywords" content="AI prompt generator, image prompt generator, AI image prompt, Midjourney prompt, Stable Diffusion prompt, Flux prompt">
 
 <style>
 body {
@@ -33,11 +33,14 @@ body {
     padding: 15px;
     background: #333;
     border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
 }
 
 .nav-bar a {
     color: white;
-    margin: 0 10px;
     text-decoration: none;
     font-weight: bold;
 }
@@ -59,10 +62,6 @@ h1, h2, h3 {
     border-radius: 8px;
     text-align: left;
     line-height: 1.6;
-}
-
-.notice strong {
-    color: #b35c00;
 }
 
 textarea {
@@ -110,7 +109,7 @@ button:disabled {
     border: 1px solid #ddd;
     border-radius: 8px;
     text-align: left;
-    line-height: 1.7;
+    line-height: 1.8;
     white-space: pre-wrap;
     min-height: 100px;
 }
@@ -149,72 +148,82 @@ button:disabled {
 
 <div class="container">
 
+```
 <div class="nav-bar">
-    <a href="index.html">Home</a> |
-    <a href="prompt.html">Prompt</a> |
-    <a href="hashtag.html">Hashtag</a> |
-    <a href="bio.html">Bio</a> |
-    <a href="caption.html">Caption</a> |
-    <a href="about.html">About</a> |
+    <a href="index.html">Home</a>
+    <a href="prompt.html">Prompt</a>
+    <a href="hashtag.html">Hashtag</a>
+    <a href="bio.html">Bio</a>
+    <a href="caption.html">Caption</a>
+    <a href="about.html">About</a>
     <a href="contact.html">Contact</a>
 </div>
 
 <h1>Free AI Image Prompt Generator</h1>
 
 <p>
-    Turn a simple idea into a detailed text prompt for AI image generators.
+    Turn a simple idea into a detailed text prompt for AI image generation tools.
 </p>
 
 <div class="notice">
-    <strong>Important:</strong> This tool creates detailed text prompts, not images.
-    Copy the generated prompt and paste it into image generation tools such as Midjourney, Stable Diffusion, Flux, DALL-E style tools, or other AI image platforms.
-</div>
-
-<textarea id="idea" placeholder="Example: three Samoyed dogs running through a snowy mountain forest, cinematic style"></textarea>
-
-<br>
-
-<button id="generateBtn" onclick="generatePrompt()">Generate Text Prompt</button>
-<button onclick="copyPrompt()">Copy Prompt</button>
-
-<div class="result-title">Generated Text Prompt</div>
-
-<div class="result-box" id="result">
-    Your generated text prompt will appear here.
+    This tool creates text prompts only. It does not directly create images.
+    Copy the generated prompt and paste it into your preferred AI image generation platform.
 </div>
 
 <div class="notice">
-    After generating a prompt, copy the result and paste it into your preferred AI image generator to create an image.
+    The result follows your input language.
+    If you write in Korean, the prompt can be generated in Korean.
+    If you write in English, the prompt can be generated in English.
+    If you write in Vietnamese, the prompt can be generated in Vietnamese.
+</div>
+
+<textarea id="idea" placeholder="Example: 사모예드 세 마리가 눈밭에서 뛰어노는 장면"></textarea>
+
+<br>
+
+<button id="generateBtn" onclick="generatePrompt()">Generate Prompt</button>
+<button onclick="copyPrompt()">Copy Prompt</button>
+
+<div class="result-title">Generated Prompt</div>
+
+<div class="result-box" id="result">
+    Your generated prompt will appear here.
 </div>
 
 <div class="content">
     <h2>What is an AI Image Prompt Generator?</h2>
 
     <p>
-        An AI Image Prompt Generator helps users turn simple ideas into detailed text prompts for image generation tools.
-        Instead of writing a short and unclear sentence, this tool expands your idea into a more complete visual description.
+        An AI Image Prompt Generator helps users turn simple ideas into detailed text prompts for AI image generation tools.
+        A better prompt can help describe the subject, style, mood, lighting, camera angle, background, and visual details more clearly.
     </p>
 
     <p>
-        A strong image prompt usually includes the subject, environment, lighting, mood, camera style, artistic direction, colors, and quality details.
-        Better prompts can help image generators understand what kind of result the user wants.
+        This tool is useful for AI art users, creators, designers, marketers, students, product sellers, and anyone who wants to create better image prompts from simple ideas.
     </p>
 
-    <h2>How This Tool Works</h2>
+    <h2>Same Language Output</h2>
 
     <p>
-        Enter a simple idea into the text box. The AI will rewrite it into a detailed English prompt that can be copied and used in popular image generation tools.
-        This is useful for creators who want better results but do not want to manually write long prompts.
+        This prompt generator is designed to follow the language of your input.
+        Korean input can produce Korean prompts, English input can produce English prompts, and Vietnamese input can produce Vietnamese prompts.
+    </p>
+
+    <h2>How to Use This Tool</h2>
+
+    <p>
+        Enter a short idea in the text box. Click the generate button.
+        The AI will create a detailed text prompt that you can copy and use in an image generation platform.
     </p>
 
     <h2>Best Use Cases</h2>
 
     <ul>
         <li>AI art prompts</li>
-        <li>Anime image prompts</li>
+        <li>Anime-style image prompts</li>
         <li>Product image concepts</li>
         <li>Fantasy character prompts</li>
-        <li>Wallpaper prompt ideas</li>
+        <li>Wallpaper ideas</li>
         <li>Social media visual concepts</li>
         <li>Cinematic photo-style prompts</li>
     </ul>
@@ -222,7 +231,7 @@ button:disabled {
     <h2>Tips for Better Prompts</h2>
 
     <p>
-        Be specific about the main subject. Add details about location, lighting, mood, style, camera angle, color, and atmosphere.
+        Be specific about the main subject, location, lighting, mood, color, style, and atmosphere.
         For example, instead of writing “dog,” write “three white Samoyed dogs running through a snowy mountain forest during golden hour.”
     </p>
 </div>
@@ -231,28 +240,30 @@ button:disabled {
     <h2>Frequently Asked Questions</h2>
 
     <h3>Does this tool create images?</h3>
-    <p>No. This tool creates detailed text prompts only. You need to paste the generated prompt into an AI image generator to create an image.</p>
+    <p>No. This tool creates text prompts only. You need to paste the generated prompt into an AI image generation platform to create an image.</p>
 
     <h3>Is this prompt generator free?</h3>
-    <p>Yes. This prompt generator is free to use.</p>
+    <p>Yes. This AI prompt generator is free to use.</p>
+
+    <h3>Can I use Korean input?</h3>
+    <p>Yes. If you write in Korean, the generated prompt can be written in Korean.</p>
+
+    <h3>Can I use Vietnamese input?</h3>
+    <p>Yes. If you write in Vietnamese, the generated prompt can be written in Vietnamese.</p>
 
     <h3>Can I use the generated prompt commercially?</h3>
-    <p>Yes, but the final image usage depends on the terms of the AI image generator you use.</p>
+    <p>You can use the generated text, but the final image usage depends on the terms of the image generation platform you use.</p>
 
-    <h3>Can I use it for anime prompts?</h3>
-    <p>Yes. You can generate prompts for anime, realistic photos, fantasy scenes, product images, cinematic images, and more.</p>
-
-    <h3>Can I use Korean or other languages?</h3>
-    <p>Yes. You can write your idea in Korean or other languages. The tool will generate an English prompt for image generation.</p>
-
-    <h3>Does it require registration?</h3>
+    <h3>Do I need registration?</h3>
     <p>No registration is required.</p>
 </div>
 
 <div class="footer">
     <a href="index.html">Home</a> |
-    <a href="prompt.html">Prompt Generator</a> |
-    <a href="index.html#articles">Articles</a> |
+    <a href="prompt.html">Prompt</a> |
+    <a href="hashtag.html">Hashtag</a> |
+    <a href="bio.html">Bio</a> |
+    <a href="caption.html">Caption</a> |
     <a href="about.html">About</a> |
     <a href="contact.html">Contact</a> |
     <a href="privacy.html">Privacy Policy</a> |
@@ -282,7 +293,7 @@ async function generatePrompt() {
         return;
     }
 
-    resultBox.textContent = "Generating text prompt with AI...";
+    resultBox.textContent = "Generating prompt with AI...";
     button.disabled = true;
     button.textContent = "Generating...";
 
@@ -308,14 +319,14 @@ async function generatePrompt() {
         resultBox.textContent = "Error: Could not connect to the AI server.";
     } finally {
         button.disabled = false;
-        button.textContent = "Generate Text Prompt";
+        button.textContent = "Generate Prompt";
     }
 }
 
 function copyPrompt() {
     const resultText = document.getElementById("result").textContent;
 
-    if (!resultText || resultText.includes("Your generated text prompt") || resultText.includes("Generating")) {
+    if (!resultText || resultText.includes("Your generated prompt") || resultText.includes("Generating")) {
         alert("Generate a prompt first.");
         return;
     }
