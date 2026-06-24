@@ -1,12 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Free AI Hashtag Generator Online</title>
-<meta name="description" content="Generate useful hashtags for Instagram, TikTok, YouTube Shorts, X and other social media platforms.">
-<meta name="keywords" content="AI hashtag generator, Instagram hashtags, TikTok hashtags, YouTube Shorts hashtags, social media hashtag tool">
+<meta name="description" content="Generate useful hashtags for Instagram, TikTok, YouTube Shorts, X, Facebook, and other social media platforms. Supports Korean, English, Vietnamese, and more.">
+<meta name="keywords" content="AI hashtag generator, Instagram hashtag generator, TikTok hashtag generator, YouTube Shorts hashtags, social media hashtags">
 
 <style>
 body {
@@ -32,11 +33,14 @@ body {
     padding: 15px;
     background: #333;
     border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
 }
 
 .nav-bar a {
     color: white;
-    margin: 0 10px;
     text-decoration: none;
     font-weight: bold;
 }
@@ -137,118 +141,140 @@ button:disabled {
     text-decoration: underline;
 }
 </style>
+
 </head>
 
 <body>
 
 <div class="container">
 
-    <div class="nav-bar">
+```
+<div class="nav-bar">
+    <a href="index.html">Home</a>
+    <a href="prompt.html">Prompt</a>
+    <a href="hashtag.html">Hashtag</a>
+    <a href="bio.html">Bio</a>
+    <a href="caption.html">Caption</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+</div>
+
+<h1>Free AI Hashtag Generator</h1>
+
+<p>
+    Generate useful hashtags for Instagram, TikTok, YouTube Shorts, Facebook, X, and other social media platforms.
+</p>
+
+<div class="notice">
+    Enter a topic, niche, product, video idea, post idea, or content description.
+    The AI will generate hashtags you can copy and use for social media posts.
+</div>
+
+<div class="notice">
+    The result follows your input language.
+    If you write in Korean, the hashtags can be generated in Korean.
+    If you write in English, the hashtags can be generated in English.
+    If you write in Vietnamese, the hashtags can be generated in Vietnamese.
+</div>
+
+<textarea id="topic" placeholder="Example: 사모예드가 눈밭에서 뛰어노는 귀여운 영상"></textarea>
+
+<br>
+
+<button id="generateBtn" onclick="generateHashtags()">Generate Hashtags</button>
+<button onclick="copyHashtags()">Copy Hashtags</button>
+
+<div class="result-title">Generated Hashtags</div>
+
+<div class="result-box" id="result">
+    Your generated hashtags will appear here.
+</div>
+
+<div class="content">
+    <h2>What is an AI Hashtag Generator?</h2>
+
+    <p>
+        An AI Hashtag Generator helps users create relevant hashtags for social media posts, videos, photos, brands, products, and creator content.
+        Instead of guessing hashtags manually, users can enter a simple topic and receive hashtag ideas based on that input.
+    </p>
+
+    <p>
+        This tool is useful for Instagram posts, TikTok videos, YouTube Shorts, Facebook posts, X posts, product content, pet videos, travel content, fitness posts, and small business marketing.
+    </p>
+
+    <h2>Same Language Output</h2>
+
+    <p>
+        This hashtag generator is designed to follow the language of your input.
+        Korean input can produce Korean hashtags, English input can produce English hashtags, and Vietnamese input can produce Vietnamese hashtags.
+    </p>
+
+    <h2>How to Use This Tool</h2>
+
+    <p>
+        Enter a short description of your content. Click the generate button.
+        The AI will create a list of hashtags that you can copy and use in your post.
+    </p>
+
+    <h2>Best Use Cases</h2>
+
+    <ul>
+        <li>Instagram hashtags</li>
+        <li>TikTok hashtags</li>
+        <li>YouTube Shorts hashtags</li>
+        <li>Facebook post hashtags</li>
+        <li>X post hashtags</li>
+        <li>Product marketing hashtags</li>
+        <li>Pet video hashtags</li>
+        <li>Travel content hashtags</li>
+        <li>Fitness content hashtags</li>
+        <li>Small business hashtags</li>
+    </ul>
+
+    <h2>Tips for Better Hashtags</h2>
+
+    <p>
+        Give the AI a clear topic. Include the subject, audience, platform, product, niche, or mood.
+        For example, instead of writing “dog,” write “a cute Samoyed dog running through snow for an Instagram reel.”
+    </p>
+</div>
+
+<div class="content">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>Is this AI Hashtag Generator free?</h3>
+    <p>Yes. This AI hashtag generator is free to use.</p>
+
+    <h3>Can I use Korean input?</h3>
+    <p>Yes. If you write in Korean, the generated hashtags can be written in Korean.</p>
+
+    <h3>Can I use Vietnamese input?</h3>
+    <p>Yes. If you write in Vietnamese, the generated hashtags can be written in Vietnamese.</p>
+
+    <h3>Can I use these hashtags on Instagram?</h3>
+    <p>Yes. You can use the generated hashtags on Instagram, TikTok, YouTube Shorts, Facebook, X, and other social media platforms.</p>
+
+    <h3>Do hashtags guarantee more views?</h3>
+    <p>No. Hashtags can help describe and organize content, but views depend on content quality, timing, audience, and platform behavior.</p>
+
+    <h3>Do I need registration?</h3>
+    <p>No registration is required.</p>
+</div>
+
+<div class="footer">
     <a href="index.html">Home</a> |
     <a href="prompt.html">Prompt</a> |
     <a href="hashtag.html">Hashtag</a> |
     <a href="bio.html">Bio</a> |
     <a href="caption.html">Caption</a> |
     <a href="about.html">About</a> |
-    <a href="contact.html">Contact</a>
+    <a href="contact.html">Contact</a> |
+    <a href="privacy.html">Privacy Policy</a> |
+    <a href="terms.html">Terms of Service</a>
+
+    <p>© 2026 AI Free Tools. All rights reserved.</p>
 </div>
-
-    <h1>Free AI Hashtag Generator</h1>
-
-    <p>
-        Generate hashtags for Instagram, TikTok, YouTube Shorts, X, and social media posts.
-    </p>
-
-    <div class="notice">
-        Enter a topic, niche, product, photo idea, video idea, or post description.
-        The AI will generate useful hashtags you can copy and use for social media content.
-    </div>
-
-    <textarea id="topic" placeholder="Example: Samoyed dog running through snow, cute winter pet video"></textarea>
-
-    <br>
-
-    <button id="generateBtn" onclick="generateHashtags()">Generate Hashtags</button>
-    <button onclick="copyHashtags()">Copy Hashtags</button>
-
-    <div class="result-title">Generated Hashtags</div>
-
-    <div class="result-box" id="result">
-        Your generated hashtags will appear here.
-    </div>
-
-    <div class="content">
-        <h2>What is an AI Hashtag Generator?</h2>
-
-        <p>
-            An AI Hashtag Generator helps creators find relevant hashtags for social media posts.
-            Instead of manually guessing hashtags, users can enter a topic and receive a list of related tags for platforms like Instagram, TikTok, YouTube Shorts, X, and other social media channels.
-        </p>
-
-        <p>
-            Good hashtags can help organize content, describe the subject clearly, and make posts easier to discover by people interested in similar topics.
-        </p>
-
-        <h2>How to Use This Tool</h2>
-
-        <p>
-            Type a short description of your post, photo, video, product, brand, or niche.
-            Click the generate button, review the results, and copy the hashtags you want to use.
-        </p>
-
-        <h2>Best Use Cases</h2>
-
-        <ul>
-            <li>Instagram posts</li>
-            <li>TikTok videos</li>
-            <li>YouTube Shorts</li>
-            <li>Pet videos</li>
-            <li>Travel content</li>
-            <li>Fitness content</li>
-            <li>Product marketing</li>
-            <li>AI art posts</li>
-            <li>Personal branding</li>
-        </ul>
-
-        <h2>Tips for Better Hashtags</h2>
-
-        <p>
-            Use a mix of broad and specific hashtags. Broad tags can reach a larger audience, while niche tags can help target people who are more interested in your exact topic.
-            For example, a Samoyed video might use both general pet hashtags and specific dog breed hashtags.
-        </p>
-    </div>
-
-    <div class="content">
-        <h2>Frequently Asked Questions</h2>
-
-        <h3>Is this hashtag generator free?</h3>
-        <p>Yes. This AI hashtag generator is free to use.</p>
-
-        <h3>Can I use these hashtags on Instagram?</h3>
-        <p>Yes. The generated hashtags can be used on Instagram, TikTok, YouTube Shorts, X, and other social platforms.</p>
-
-        <h3>Does this guarantee more views?</h3>
-        <p>No. Hashtags can help with discoverability, but views depend on content quality, timing, audience, and platform behavior.</p>
-
-        <h3>Can I generate hashtags in English from Korean input?</h3>
-        <p>Yes. You can enter Korean or another language. The tool can generate social media hashtags based on your idea.</p>
-
-        <h3>Do I need registration?</h3>
-        <p>No registration is required.</p>
-    </div>
-
-    <div class="footer">
-        <a href="index.html">Home</a> |
-        <a href="prompt.html">Prompt Generator</a> |
-        <a href="hashtag.html">Hashtag Generator</a> |
-        <a href="index.html#articles">Articles</a> |
-        <a href="about.html">About</a> |
-        <a href="contact.html">Contact</a> |
-        <a href="privacy.html">Privacy Policy</a> |
-        <a href="terms.html">Terms of Service</a>
-
-        <p>© 2026 AI Free Tools. All rights reserved.</p>
-    </div>
+```
 
 </div>
 
