@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Free AI Prompt Generator Online</title>
-<meta name="description" content="Generate detailed AI image prompts for Midjourney, Stable Diffusion, Flux and other image generation tools.">
+<meta name="description" content="Generate detailed AI image prompts for Midjourney, Stable Diffusion, Flux and other AI image generation tools.">
 <meta name="keywords" content="AI prompt generator, image prompt generator, Midjourney prompt, Stable Diffusion prompt, Flux prompt">
 
 <style>
@@ -72,6 +72,11 @@ button:hover {
     background: #00aa88;
 }
 
+button:disabled {
+    background: #999;
+    cursor: not-allowed;
+}
+
 .result-box {
     margin: 30px auto;
     padding: 20px;
@@ -82,6 +87,7 @@ button:hover {
     text-align: left;
     line-height: 1.7;
     white-space: pre-wrap;
+    min-height: 100px;
 }
 
 .content {
@@ -122,14 +128,15 @@ button:hover {
     <h1>Free AI Image Prompt Generator</h1>
 
     <p>
-        Describe your idea and generate a detailed prompt for AI image tools.
+        Describe your idea and generate a detailed AI image prompt.
     </p>
 
     <textarea id="idea" placeholder="Example: a samoyed dog running through snow at sunset, cinematic style"></textarea>
 
     <br>
 
-    <button onclick="generatePrompt()">Generate Prompt</button>
+    <button id="generateBtn" onclick="generatePrompt()">Generate Prompt</button>
+    <button onclick="copyPrompt()">Copy Prompt</button>
 
     <div class="result-box" id="result">
         Your generated prompt will appear here.
@@ -206,20 +213,63 @@ button:hover {
 </div>
 
 <script>
-function generatePrompt() {
-    var idea = document.getElementById("idea").value.trim();
-    var result = document.getElementById("result");
+async function generatePrompt() {
+    const ideaInput = document.getElementById("idea");
+    const resultBox = document.getElementById("result");
+    const button = document.getElementById("generateBtn");
+
+    const idea = ideaInput.value.trim();
 
     if (idea === "") {
         alert("Please enter an idea first.");
         return;
     }
 
-    var prompt =
-        "Ultra detailed " + idea + ", " +
-        "cinematic lighting, professional composition, highly detailed textures, sharp focus, realistic shadows, beautiful color grading, depth of field, dramatic atmosphere, high resolution, masterpiece quality, clean background, visually striking, award-winning image style.";
+    resultBox.textContent = "Generating prompt with AI...";
+    button.disabled = true;
+    button.textContent = "Generating...";
 
-    result.textContent = prompt;
+    try {
+        const response = await fetch("/api/generate-prompt", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ idea: idea })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            resultBox.textContent = data.error || "Something went wrong.";
+            return;
+        }
+
+        resultBox.textContent = data.prompt || "No prompt was generated.";
+
+    } catch (error) {
+        resultBox.textContent = "Error: Could not connect to the AI server.";
+    } finally {
+        button.disabled = false;
+        button.textContent = "Generate Prompt";
+    }
+}
+
+function copyPrompt() {
+    const resultText = document.getElementById("result").textContent;
+
+    if (!resultText || resultText.includes("Your generated prompt")) {
+        alert("Generate a prompt first.");
+        return;
+    }
+
+    navigator.clipboard.writeText(resultText)
+        .then(() => {
+            alert("Prompt copied!");
+        })
+        .catch(() => {
+            alert("Copy failed. Please copy manually.");
+        });
 }
 </script>
 
