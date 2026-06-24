@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Free AI Prompt Generator Online</title>
-<meta name="description" content="Generate detailed AI image prompts for Midjourney, Stable Diffusion, Flux and other AI image generation tools.">
-<meta name="keywords" content="AI prompt generator, image prompt generator, Midjourney prompt, Stable Diffusion prompt, Flux prompt">
+<title>Free AI Image Prompt Generator Online</title>
+<meta name="description" content="Generate detailed text prompts for AI image generators like Midjourney, Stable Diffusion, Flux and other creative image tools.">
+<meta name="keywords" content="AI prompt generator, image prompt generator, Midjourney prompt, Stable Diffusion prompt, Flux prompt, AI art prompt">
 
 <style>
 body {
@@ -43,6 +43,21 @@ body {
 
 .nav-bar a:hover {
     color: #00ffcc;
+}
+
+.notice {
+    max-width: 760px;
+    margin: 20px auto;
+    padding: 15px;
+    background: #fff8dd;
+    border: 1px solid #f0d36a;
+    border-radius: 8px;
+    text-align: left;
+    line-height: 1.6;
+}
+
+.notice strong {
+    color: #b35c00;
 }
 
 textarea {
@@ -90,6 +105,11 @@ button:disabled {
     min-height: 100px;
 }
 
+.result-title {
+    font-weight: bold;
+    margin-top: 30px;
+}
+
 .content {
     text-align: left;
     max-width: 800px;
@@ -128,73 +148,85 @@ button:disabled {
     <h1>Free AI Image Prompt Generator</h1>
 
     <p>
-        Describe your idea and generate a detailed AI image prompt.
+        Turn a simple idea into a detailed text prompt for AI image generators.
     </p>
 
-    <textarea id="idea" placeholder="Example: a samoyed dog running through snow at sunset, cinematic style"></textarea>
+    <div class="notice">
+        <strong>Important:</strong> This tool does not create images directly.
+        It creates a detailed text prompt that you can copy and paste into image generation tools such as Midjourney, Stable Diffusion, Flux, DALL-E style tools, or other AI image platforms.
+    </div>
+
+    <textarea id="idea" placeholder="Example: three Samoyed dogs running through a snowy mountain forest, cinematic style"></textarea>
 
     <br>
 
-    <button id="generateBtn" onclick="generatePrompt()">Generate Prompt</button>
+    <button id="generateBtn" onclick="generatePrompt()">Generate Text Prompt</button>
     <button onclick="copyPrompt()">Copy Prompt</button>
 
+    <div class="result-title">Generated Text Prompt</div>
+
     <div class="result-box" id="result">
-        Your generated prompt will appear here.
+        Your generated text prompt will appear here.
+    </div>
+
+    <div class="notice">
+        After generating a prompt, copy the result and paste it into your preferred AI image generator to create an image.
     </div>
 
     <div class="content">
-        <h2>What is an AI Prompt Generator?</h2>
+        <h2>What is an AI Image Prompt Generator?</h2>
 
         <p>
-            An AI Prompt Generator helps users turn simple ideas into detailed image generation prompts.
-            These prompts can be used with AI image tools such as Midjourney, Stable Diffusion, Flux, DALL-E style tools, and other creative image models.
+            An AI Image Prompt Generator helps users turn simple ideas into detailed text prompts for image generation tools.
+            Instead of writing a short and unclear sentence, this tool expands your idea into a more complete visual description.
         </p>
 
         <p>
-            A good prompt usually includes the subject, environment, style, lighting, camera angle, mood, colors, and quality details.
-            Instead of writing a short sentence, users can generate a more complete description that gives the image model clearer instructions.
+            A strong image prompt usually includes the subject, environment, lighting, mood, camera style, artistic direction, colors, and quality details.
+            Better prompts can help image generators understand what kind of result the user wants.
         </p>
 
         <h2>How to Use This Tool</h2>
 
         <p>
-            Enter a simple idea into the text box, such as a character, product, animal, landscape, or fantasy scene.
-            Then click the generate button. The tool will create a more detailed prompt that can be copied and used in an AI image generator.
+            Enter a simple idea into the text box. For example, you can write “a Samoyed dog in snow,” “a cyberpunk city at night,” or “an anime girl standing under cherry blossoms.”
+            Then click the generate button. The AI will create a detailed English text prompt that you can copy and use elsewhere.
         </p>
 
         <h2>Best Use Cases</h2>
 
         <ul>
             <li>AI art prompts</li>
+            <li>Anime image prompts</li>
             <li>Product image concepts</li>
             <li>Fantasy character prompts</li>
-            <li>Anime artwork prompts</li>
-            <li>Social media image ideas</li>
             <li>Wallpaper prompt ideas</li>
+            <li>Social media visual concepts</li>
+            <li>Cinematic photo-style prompts</li>
         </ul>
 
         <h2>Tips for Better Prompts</h2>
 
         <p>
-            Be specific about the main subject. Add details about lighting, background, color, mood, and style.
-            For example, instead of writing “dog,” write “a white samoyed dog running through fresh snow during golden hour.”
+            Be specific about the main subject. Add details about location, lighting, mood, style, and camera angle.
+            For example, instead of writing “dog,” write “three white Samoyed dogs running through a snowy mountain forest during golden hour.”
         </p>
     </div>
 
     <div class="content">
         <h2>Frequently Asked Questions</h2>
 
-        <h3>Is this prompt generator free?</h3>
-        <p>Yes. This page is free to use.</p>
-
-        <h3>Can I use the prompt commercially?</h3>
-        <p>Yes, but image usage depends on the terms of the AI image generator you use.</p>
-
         <h3>Does this tool create images?</h3>
-        <p>No. This tool creates text prompts that can be copied into image generation tools.</p>
+        <p>No. This tool creates detailed text prompts only. You need to paste the generated prompt into an AI image generator to create an image.</p>
+
+        <h3>Is this prompt generator free?</h3>
+        <p>Yes. This prompt generator is free to use.</p>
+
+        <h3>Can I use the generated prompt commercially?</h3>
+        <p>Yes, but the final image usage depends on the terms of the AI image generator you use.</p>
 
         <h3>Can I use it for anime prompts?</h3>
-        <p>Yes. You can use it for anime, realistic, product, fantasy, and cinematic prompts.</p>
+        <p>Yes. You can generate prompts for anime, realistic photos, fantasy scenes, product images, cinematic images, and more.</p>
 
         <h3>Does it require registration?</h3>
         <p>No registration is required.</p>
@@ -225,7 +257,12 @@ async function generatePrompt() {
         return;
     }
 
-    resultBox.textContent = "Generating prompt with AI...";
+    if (idea.length > 500) {
+        alert("Please keep your idea under 500 characters.");
+        return;
+    }
+
+    resultBox.textContent = "Generating text prompt with AI...";
     button.disabled = true;
     button.textContent = "Generating...";
 
@@ -251,14 +288,14 @@ async function generatePrompt() {
         resultBox.textContent = "Error: Could not connect to the AI server.";
     } finally {
         button.disabled = false;
-        button.textContent = "Generate Prompt";
+        button.textContent = "Generate Text Prompt";
     }
 }
 
 function copyPrompt() {
     const resultText = document.getElementById("result").textContent;
 
-    if (!resultText || resultText.includes("Your generated prompt")) {
+    if (!resultText || resultText.includes("Your generated text prompt")) {
         alert("Generate a prompt first.");
         return;
     }
