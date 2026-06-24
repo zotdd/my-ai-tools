@@ -1,5 +1,4 @@
 module.exports = async function handler(req, res) {
-  // Only allow POST requests
   if (req.method !== "POST") {
     return res.status(405).json({
       error: "Method not allowed. Use POST."
@@ -38,16 +37,16 @@ module.exports = async function handler(req, res) {
           {
             role: "system",
             content:
-              "You are an expert AI image prompt writer. Create one detailed English image-generation prompt. Return only the final prompt. Do not add explanations, markdown, titles, quotes, or bullet points."
+              "You are an expert AI image prompt writer. Detect the user's input language and write the final answer in the same language. If the user writes in Korean, answer in Korean. If the user writes in English, answer in English. If the user writes in Vietnamese, answer in Vietnamese. Create one detailed image-generation text prompt. Return only the final prompt. Do not add explanations, markdown, titles, quotes, emojis, icons, flags, or bullet points."
           },
           {
             role: "user",
             content:
-              `Create a detailed AI image prompt from this idea: ${userIdea}`
+              `Create a detailed AI image prompt from this idea. Use the same language as the user's input: ${userIdea}`
           }
         ],
         temperature: 0.8,
-        max_tokens: 300
+        max_tokens: 350
       })
     });
 
@@ -59,8 +58,7 @@ module.exports = async function handler(req, res) {
       });
     }
 
-    const generatedPrompt =
-      data.choices?.[0]?.message?.content?.trim();
+    const generatedPrompt = data.choices?.[0]?.message?.content?.trim();
 
     if (!generatedPrompt) {
       return res.status(500).json({
