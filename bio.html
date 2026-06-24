@@ -1,12 +1,13 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Free AI Bio Generator Online</title>
-<meta name="description" content="Generate short profile bios for Instagram, YouTube, X, LinkedIn, personal websites, creators and small businesses.">
-<meta name="keywords" content="AI bio generator, Instagram bio generator, YouTube bio, profile bio generator, business bio generator, social media bio">
+<meta name="description" content="Generate short profile bios for Instagram, YouTube, X, LinkedIn, websites, creators, and small businesses. Supports Korean, English, Vietnamese, and more.">
+<meta name="keywords" content="AI bio generator, Instagram bio generator, YouTube bio generator, profile bio generator, business bio generator, social media bio">
 
 <style>
 body {
@@ -32,11 +33,14 @@ body {
     padding: 15px;
     background: #333;
     border-radius: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
 }
 
 .nav-bar a {
     color: white;
-    margin: 0 10px;
     text-decoration: none;
     font-weight: bold;
 }
@@ -137,119 +141,139 @@ button:disabled {
     text-decoration: underline;
 }
 </style>
+
 </head>
 
 <body>
 
 <div class="container">
 
-    <div class="nav-bar">
+```
+<div class="nav-bar">
+    <a href="index.html">Home</a>
+    <a href="prompt.html">Prompt</a>
+    <a href="hashtag.html">Hashtag</a>
+    <a href="bio.html">Bio</a>
+    <a href="caption.html">Caption</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+</div>
+
+<h1>Free AI Bio Generator</h1>
+
+<p>
+    Generate short profile bios for social media, creator pages, personal websites, and small businesses.
+</p>
+
+<div class="notice">
+    Enter a short description of yourself, your brand, your business, your channel, or your project.
+    The AI will generate multiple short bio options you can copy and use.
+</div>
+
+<div class="notice">
+    The result follows your input language.
+    If you write in Korean, the bios can be generated in Korean.
+    If you write in English, the bios can be generated in English.
+    If you write in Vietnamese, the bios can be generated in Vietnamese.
+</div>
+
+<textarea id="description" placeholder="Example: 베트남에서 한국식 스크린골프 장비를 판매하는 사업"></textarea>
+
+<br>
+
+<button id="generateBtn" onclick="generateBio()">Generate Bio</button>
+<button onclick="copyBio()">Copy Bio</button>
+
+<div class="result-title">Generated Bios</div>
+
+<div class="result-box" id="result">
+    Your generated bios will appear here.
+</div>
+
+<div class="content">
+    <h2>What is an AI Bio Generator?</h2>
+
+    <p>
+        An AI Bio Generator helps users create short profile descriptions for social media, personal websites, creator pages, and business profiles.
+        A good bio explains who you are, what you do, and why people should follow, contact, or trust you.
+    </p>
+
+    <p>
+        This tool is useful for creators, freelancers, students, small businesses, influencers, personal brands, and online sellers who need a clear profile introduction.
+    </p>
+
+    <h2>Same Language Output</h2>
+
+    <p>
+        This bio generator is designed to follow the language of your input.
+        Korean input can produce Korean bios, English input can produce English bios, and Vietnamese input can produce Vietnamese bios.
+    </p>
+
+    <h2>How to Use This Tool</h2>
+
+    <p>
+        Write a short description of yourself, your brand, your project, or your business.
+        Click the generate button. The AI will create several short bio options that you can copy, edit, and use.
+    </p>
+
+    <h2>Best Use Cases</h2>
+
+    <ul>
+        <li>Instagram bio</li>
+        <li>YouTube channel bio</li>
+        <li>X profile bio</li>
+        <li>LinkedIn profile summary</li>
+        <li>Creator profile</li>
+        <li>Personal website introduction</li>
+        <li>Small business profile</li>
+        <li>Startup introduction</li>
+        <li>Freelancer profile</li>
+    </ul>
+
+    <h2>Tips for Better Bios</h2>
+
+    <p>
+        Include your role, niche, audience, value, and tone.
+        For example, instead of writing “fitness coach,” write “online fitness coach helping busy beginners build simple home workout routines.”
+    </p>
+</div>
+
+<div class="content">
+    <h2>Frequently Asked Questions</h2>
+
+    <h3>Is this AI Bio Generator free?</h3>
+    <p>Yes. This AI bio generator is free to use.</p>
+
+    <h3>Can I use Korean input?</h3>
+    <p>Yes. If you write in Korean, the generated bios can be written in Korean.</p>
+
+    <h3>Can I use Vietnamese input?</h3>
+    <p>Yes. If you write in Vietnamese, the generated bios can be written in Vietnamese.</p>
+
+    <h3>Can I use these bios on Instagram?</h3>
+    <p>Yes. You can use the generated bios on Instagram, YouTube, X, LinkedIn, personal websites, and business profiles.</p>
+
+    <h3>Does this tool write long articles?</h3>
+    <p>No. This tool is designed for short profile bios and introductions.</p>
+
+    <h3>Do I need registration?</h3>
+    <p>No registration is required.</p>
+</div>
+
+<div class="footer">
     <a href="index.html">Home</a> |
     <a href="prompt.html">Prompt</a> |
     <a href="hashtag.html">Hashtag</a> |
     <a href="bio.html">Bio</a> |
     <a href="caption.html">Caption</a> |
     <a href="about.html">About</a> |
-    <a href="contact.html">Contact</a>
+    <a href="contact.html">Contact</a> |
+    <a href="privacy.html">Privacy Policy</a> |
+    <a href="terms.html">Terms of Service</a>
+
+    <p>© 2026 AI Free Tools. All rights reserved.</p>
 </div>
-
-    <h1>Free AI Bio Generator</h1>
-
-    <p>
-        Generate short profile bios for social media, creator pages, personal websites, and small businesses.
-    </p>
-
-    <div class="notice">
-        Enter a short description of yourself, your brand, your business, your channel, or your project.
-        The AI will generate multiple short bio options you can copy and use.
-    </div>
-
-    <textarea id="description" placeholder="Example: Korean golf simulator business in Vietnam helping indoor golf centers and sports facilities"></textarea>
-
-    <br>
-
-    <button id="generateBtn" onclick="generateBio()">Generate Bio</button>
-    <button onclick="copyBio()">Copy Bio</button>
-
-    <div class="result-title">Generated Bio</div>
-
-    <div class="result-box" id="result">
-        Your generated bios will appear here.
-    </div>
-
-    <div class="content">
-        <h2>What is an AI Bio Generator?</h2>
-
-        <p>
-            An AI Bio Generator helps users create short profile descriptions for social media, websites, creator pages, and business profiles.
-            A good bio explains who you are, what you do, and why people should follow, contact, or trust you.
-        </p>
-
-        <p>
-            This tool can help creators, freelancers, small businesses, influencers, students, and personal brands write better profile bios without starting from a blank page.
-        </p>
-
-        <h2>How to Use This Tool</h2>
-
-        <p>
-            Write a short description of yourself, your brand, your business, or your content.
-            Click the generate button, review the results, and copy the bio that fits your purpose best.
-        </p>
-
-        <h2>Best Use Cases</h2>
-
-        <ul>
-            <li>Instagram bio</li>
-            <li>YouTube channel description</li>
-            <li>X profile bio</li>
-            <li>LinkedIn profile summary</li>
-            <li>Creator profile</li>
-            <li>Personal website introduction</li>
-            <li>Small business profile</li>
-            <li>Startup introduction</li>
-            <li>Freelancer profile</li>
-        </ul>
-
-        <h2>Tips for Better Bios</h2>
-
-        <p>
-            Include your role, niche, audience, value, and tone.
-            For example, instead of writing “fitness coach,” write “online fitness coach helping busy beginners build simple home workout routines.”
-        </p>
-    </div>
-
-    <div class="content">
-        <h2>Frequently Asked Questions</h2>
-
-        <h3>Is this AI Bio Generator free?</h3>
-        <p>Yes. This AI bio generator is free to use.</p>
-
-        <h3>Can I use the generated bio on Instagram?</h3>
-        <p>Yes. You can use the generated bios on Instagram, YouTube, X, LinkedIn, websites, and other profile pages.</p>
-
-        <h3>Can I enter Korean or another language?</h3>
-        <p>Yes. You can enter Korean or another language. The tool can generate useful bio ideas based on your description.</p>
-
-        <h3>Does this tool write long articles?</h3>
-        <p>No. This tool is designed for short profile bios, introductions, and social media descriptions.</p>
-
-        <h3>Do I need registration?</h3>
-        <p>No registration is required.</p>
-    </div>
-
-    <div class="footer">
-        <a href="index.html">Home</a> |
-        <a href="prompt.html">Prompt Generator</a> |
-        <a href="hashtag.html">Hashtag Generator</a> |
-        <a href="bio.html">Bio Generator</a> |
-        <a href="index.html#articles">Articles</a> |
-        <a href="about.html">About</a> |
-        <a href="contact.html">Contact</a> |
-        <a href="privacy.html">Privacy Policy</a> |
-        <a href="terms.html">Terms of Service</a>
-
-        <p>© 2026 AI Free Tools. All rights reserved.</p>
-    </div>
+```
 
 </div>
 
