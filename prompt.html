@@ -1,1 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Free AI Prompt Generator Online</title>
+<meta name="description" content="Generate detailed AI image prompts for Midjourney, Stable Diffusion, Flux and other image generation tools.">
+<meta name="keywords" content="AI prompt generator, image prompt generator, Midjourney prompt, Stable Diffusion prompt, Flux prompt">
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: #f4f4f9;
+    color: #333;
+    text-align: center;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.nav-bar {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #333;
+    border-radius: 5px;
+}
+
+.nav-bar a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-bar a:hover {
+    color: #00ffcc;
+}
+
+textarea {
+    width: 90%;
+    max-width: 750px;
+    height: 130px;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 12px 35px;
+    font-size: 16px;
+    font-weight: bold;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #00aa88;
+}
+
+.result-box {
+    margin: 30px auto;
+    padding: 20px;
+    max-width: 750px;
+    background: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: left;
+    line-height: 1.7;
+    white-space: pre-wrap;
+}
+
+.content {
+    text-align: left;
+    max-width: 800px;
+    margin: 45px auto 0 auto;
+    padding: 20px;
+    line-height: 1.7;
+    border-top: 1px solid #ddd;
+}
+
+.footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.footer a {
+    color: #333;
+    margin: 0 8px;
+    text-decoration: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="nav-bar">
+        <a href="index.html">Remove BG</a> |
+        <a href="anime.html">Anime Upscaler</a> |
+        <a href="eraser.html">Photo Enhancer</a> |
+        <a href="prompt.html">Prompt Generator</a>
+    </div>
+
+    <h1>Free AI Image Prompt Generator</h1>
+
+    <p>
+        Describe your idea and generate a detailed prompt for AI image tools.
+    </p>
+
+    <textarea id="idea" placeholder="Example: a samoyed dog running through snow at sunset, cinematic style"></textarea>
+
+    <br>
+
+    <button onclick="generatePrompt()">Generate Prompt</button>
+
+    <div class="result-box" id="result">
+        Your generated prompt will appear here.
+    </div>
+
+    <div class="content">
+        <h2>What is an AI Prompt Generator?</h2>
+
+        <p>
+            An AI Prompt Generator helps users turn simple ideas into detailed image generation prompts.
+            These prompts can be used with AI image tools such as Midjourney, Stable Diffusion, Flux, DALL-E style tools, and other creative image models.
+        </p>
+
+        <p>
+            A good prompt usually includes the subject, environment, style, lighting, camera angle, mood, colors, and quality details.
+            Instead of writing a short sentence, users can generate a more complete description that gives the image model clearer instructions.
+        </p>
+
+        <h2>How to Use This Tool</h2>
+
+        <p>
+            Enter a simple idea into the text box, such as a character, product, animal, landscape, or fantasy scene.
+            Then click the generate button. The tool will create a more detailed prompt that can be copied and used in an AI image generator.
+        </p>
+
+        <h2>Best Use Cases</h2>
+
+        <ul>
+            <li>AI art prompts</li>
+            <li>Product image concepts</li>
+            <li>Fantasy character prompts</li>
+            <li>Anime artwork prompts</li>
+            <li>Social media image ideas</li>
+            <li>Wallpaper prompt ideas</li>
+        </ul>
+
+        <h2>Tips for Better Prompts</h2>
+
+        <p>
+            Be specific about the main subject. Add details about lighting, background, color, mood, and style.
+            For example, instead of writing “dog,” write “a white samoyed dog running through fresh snow during golden hour.”
+        </p>
+    </div>
+
+    <div class="content">
+        <h2>Frequently Asked Questions</h2>
+
+        <h3>Is this prompt generator free?</h3>
+        <p>Yes. This page is free to use.</p>
+
+        <h3>Can I use the prompt commercially?</h3>
+        <p>Yes, but image usage depends on the terms of the AI image generator you use.</p>
+
+        <h3>Does this tool create images?</h3>
+        <p>No. This tool creates text prompts that can be copied into image generation tools.</p>
+
+        <h3>Can I use it for anime prompts?</h3>
+        <p>Yes. You can use it for anime, realistic, product, fantasy, and cinematic prompts.</p>
+
+        <h3>Does it require registration?</h3>
+        <p>No registration is required.</p>
+    </div>
+
+    <div class="footer">
+        <a href="index.html">Home</a> |
+        <a href="about.html">About</a> |
+        <a href="contact.html">Contact</a> |
+        <a href="privacy.html">Privacy Policy</a> |
+        <a href="terms.html">Terms of Service</a>
+
+        <p>© 2026 AI Free Tools. All rights reserved.</p>
+    </div>
+
+</div>
+
+<script>
+function generatePrompt() {
+    var idea = document.getElementById("idea").value.trim();
+    var result = document.getElementById("result");
+
+    if (idea === "") {
+        alert("Please enter an idea first.");
+        return;
+    }
+
+    var prompt =
+        "Ultra detailed " + idea + ", " +
+        "cinematic lighting, professional composition, highly detailed textures, sharp focus, realistic shadows, beautiful color grading, depth of field, dramatic atmosphere, high resolution, masterpiece quality, clean background, visually striking, award-winning image style.";
+
+    result.textContent = prompt;
+}
+</script>
+
+</body>
+</html>
