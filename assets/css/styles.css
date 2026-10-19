@@ -4,3 +4,15 @@
 @media(max-width:1050px){.hero-grid{grid-template-columns:1fr}.hero-card{max-width:720px}.studio-layout{grid-template-columns:minmax(0,1fr) 320px}.feature-split{gap:25px}}@media(max-width:760px){.container{width:min(100% - 30px,1180px)}.header{min-height:65px}.menu-toggle{display:block}.nav{display:none;position:absolute;top:64px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;padding:15px 21px 22px;background:#0b1516;border-bottom:1px solid #344747}.nav.open{display:flex}.nav a{padding:10px}.nav .nav-cta{text-align:center;margin-top:9px}.hero{padding:59px 0}.hero h1{font-size:43px}.hero-card{min-height:unset}.fake-video{height:270px}.fake-editor{grid-template-columns:1fr 95px}.fake-ctrl{padding:10px 6px}.section{padding:67px 0}.section-tight{padding:45px 0}.trust-grid,.grid-3,.grid-2{grid-template-columns:1fr}.feature-split{grid-template-columns:1fr}.cta-band{padding:28px;display:block}.cta-band .btn{margin-top:22px}.footer-grid{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}.article-wrap{display:block}.article-aside{position:static;margin-bottom:30px}.studio-layout{grid-template-columns:1fr}.preview-shell{height:440px}.time-range{grid-template-columns:1fr 1fr}.time-range button{grid-column:1/-1}.form-grid{grid-template-columns:1fr}.footer-end{flex-direction:column}.studio-top{display:block}.studio-top h1{font-size:30px}.studio-top .pill{margin-top:12px}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
 
 /* V1.1: Always show the whole source canvas in the preview area. */
+
+
+/* V1.2: display the real canvas aspect ratio inside a fixed-size preview panel.
+   The older grid + width/height:100% combination caused the intrinsic 9:16
+   bitmap to overflow the panel vertically and crop most of the video. */
+.preview-shell { display:flex; align-items:center; justify-content:center; }
+.preview-shell canvas {
+  width:auto; height:auto;
+  max-width:none; max-height:none;
+  flex:0 0 auto; object-fit:fill;
+  box-shadow:0 13px 45px #0008;
+}

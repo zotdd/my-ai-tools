@@ -8,7 +8,20 @@ const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
 const fmt=s=>{s=Math.max(0,Math.floor(f(s)));return Math.floor(s/60)+':'+String(s%60).padStart(2,'0')};
 const status=(message,error=false)=>{const el=$('exportStatus');el.textContent=message;el.className='status'+(error?' error':'')};
 const ratioSize=()=>state.ratio==='9:16'?[540,960]:state.ratio==='1:1'?[720,720]:[960,540];
-function canvasSize(){const [w,h]=ratioSize();canvas.width=w;canvas.height=h;$('canvasSize').textContent=w+' × '+h;draw()}
+// Keep the visible preview at the true output aspect ratio, independent of the panel dimensions.
+function syncPreviewSize(){
+ const shell=$('previewShell');
+ const cw=canvas.width, ch=canvas.height;
+ const availableW=Math.max(1,shell.clientWidth-2);
+ const availableH=Math.max(1,shell.clientHeight-2);
+ const scale=Math.min(availableW/cw,availableH/ch);
+ canvas.style.width=(cw*scale).toFixed(2)+'px';
+ canvas.style.height=(ch*scale).toFixed(2)+'px';
+}
+function canvasSize(){const [w,h]=ratioSize();canvas.width=w;canvas.height=h;$('canvasSize').textContent=w+' × '+h;syncPreviewSize();draw()}
+const previewResizeObserver = typeof ResizeObserver!=='undefined' ? new ResizeObserver(syncPreviewSize) : null;
+if(previewResizeObserver) previewResizeObserver.observe($('previewShell'));
+else window.addEventListener('resize',syncPreviewSize);
 function draw(){
  const w=canvas.width,h=canvas.height;ctx.save();ctx.fillStyle='#0b1315';ctx.fillRect(0,0,w,h);
  if(video.readyState>=2 && video.videoWidth>0){
@@ -93,6 +106,6 @@ $('exportBtn').addEventListener('click',async()=>{
  }catch(err){status('Export failed: '+(err?.message||String(err))+'. Try fewer/shorter clips or another browser.',true);if(rec&&rec.state!=='inactive'){try{rec.stop()}catch(_){}}}
  finally{if(ticker)clearInterval(ticker);if(stream)stream.getTracks().forEach(t=>t.stop());if(state.audioGain)state.audioGain.gain.value=1;state.rendering=false;state.recorder=null;setBusy(false);video.pause();}
 });
-window.addEventListener('beforeunload',()=>{if(state.url)URL.revokeObjectURL(state.url);if(state.exportUrl)URL.revokeObjectURL(state.exportUrl);cancelAnimationFrame(rafId)});
+window.addEventListener('beforeunload',()=>{if(previewResizeObserver)previewResizeObserver.disconnect();if(state.url)URL.revokeObjectURL(state.url);if(state.exportUrl)URL.revokeObjectURL(state.exportUrl);cancelAnimationFrame(rafId)});
 canvasSize();updateExportState();
 })();
