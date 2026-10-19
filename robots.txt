@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ai-free-tools.com/sitemap.xml
